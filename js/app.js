@@ -331,7 +331,7 @@ class App {
     _resetSettings() {
         APP_CONFIG.gpt.enabled = false;
         APP_CONFIG.gpt.apiKey = '';
-        APP_CONFIG.gpt.apiUrl = 'https://api.openai.com/v1/chat/completions';
+        APP_CONFIG.gpt.apiUrl = '/api/chat';
         APP_CONFIG.gpt.model = 'gpt-3.5-turbo';
         APP_CONFIG.replyDelay = { min: 800, max: 2500 };
     }

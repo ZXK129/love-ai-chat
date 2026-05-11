@@ -19,8 +19,8 @@ export class AIEngine {
     async getReply(sceneId, userMessage, chatHistory = []) {
         const sceneData = this.dataLoader.getSceneData(sceneId);
 
-        // 模式1：GPT API
-        if (APP_CONFIG.gpt.enabled && APP_CONFIG.gpt.apiKey) {
+        // 模式1：GPT API（通过后端代理，密钥不暴露到前端）
+        if (APP_CONFIG.gpt.enabled) {
             try {
                 return await this._callGPT(sceneData, userMessage, chatHistory);
             } catch (err) {
@@ -136,12 +136,10 @@ export class AIEngine {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
-                'Authorization': `Bearer ${gpt.apiKey}`,
             },
             body: JSON.stringify({
-                model: gpt.model,
                 messages,
-                max_tokens: gpt.maxTokens,
+                maxTokens: gpt.maxTokens,
                 temperature: gpt.temperature,
             }),
         });
@@ -151,7 +149,7 @@ export class AIEngine {
         }
 
         const data = await response.json();
-        const reply = data.choices?.[0]?.message?.content?.trim();
+        const reply = data.reply;
 
         if (!reply) {
             throw new Error('GPT API 未返回有效回复');

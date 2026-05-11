@@ -24,17 +24,20 @@
 ### 1. 本地运行
 
 ```bash
-# 方式一：使用 Python
+# 安装依赖
 cd love-ai-chat
-python3 -m http.server 3000
+npm install
 
-# 方式二：使用 Node.js
-npx serve love-ai-chat
+# 启动后端服务（同时托管前端静态文件 + API）
+npm start
 
-# 然后打开浏览器访问 http://localhost:8080
+# 然后打开浏览器访问 http://localhost:3002
 ```
 
-> **注意**：请勿直接双击 `index.html` 打开（file:// 协议下 fetch 可能被浏览器阻止）。
+> **注意**：
+> - 请勿直接双击 `index.html` 打开（file:// 协议下 fetch 可能被浏览器阻止）。
+> - 端口号可在 `.env` 文件中修改 `PORT` 变量。
+> - `npm start` 会启动 Express 服务，同时提供前端页面和 `/api/chat` 接口，无需额外启动静态文件服务器。
 
 ### 2. 部署到服务器
 

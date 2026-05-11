@@ -1,0 +1,13 @@
+{
+  "name": "love-ai-chat",
+  "version": "1.0.0",
+  "description": "恋爱AI聊天模拟器",
+  "main": "server.js",
+  "scripts": {
+    "start": "node -r dotenv/config server.js"
+  },
+  "dependencies": {
+    "dotenv": "^17.4.2",
+    "express": "^4.18.2"
+  }
+}

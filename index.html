@@ -60,12 +60,12 @@
             </div>
             <div id="gptSettings" style="display:none;">
                 <div class="setting-group">
-                    <label class="setting-label">API Key</label>
-                    <input type="password" id="gptApiKey" class="setting-input" placeholder="sk-...">
+                    <label class="setting-label">API Key（服务端 .env 配置）</label>
+                    <input type="text" id="gptApiKey" class="setting-input" placeholder="由后端处理" disabled style="opacity:0.6;">
                 </div>
                 <div class="setting-group">
                     <label class="setting-label">API URL</label>
-                    <input type="text" id="gptApiUrl" class="setting-input" value="https://api.openai.com/v1/chat/completions">
+                    <input type="text" id="gptApiUrl" class="setting-input" value="/api/chat">
                 </div>
                 <div class="setting-group">
                     <label class="setting-label">模型</label>
